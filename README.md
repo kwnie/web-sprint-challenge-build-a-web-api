@@ -141,7 +141,20 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+Node is asynchronous and fast. Express allows us to setup middleware and routes
+
 1. Understand and explain the use of Middleware.
+We can add functions like authentication that isn't a part of node. 
+
 1. The basic principles of the REST architectural style.
+-client/server architecture
+-statelessness
+-cacheability
+-layered system
+-uniform interface
+
 1. Understand and explain the use of Express Routers.
+we can use to provide routing, handle validation, and handle errors
+
 1. Describe tooling used to manually test the correctness of an API.
+Insomnia or Postman. You can type in your endpoint and manipulate the data from there.
