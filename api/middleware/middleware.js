@@ -1,4 +1,5 @@
 const projects = require("../projects/projects-model")
+const actions = require("../actions/actions-model")
 
 const logger = () => {
     return(req, res, next) => {
@@ -27,7 +28,7 @@ const validateProjectId = () => {
 
 const validateActionId = () => {
     return(req, res, next) => {
-        projects.get(req.params.id)
+        actions.get(req.params.id)
             .then((action) => {
                 if(action){
                     req.action = action
@@ -42,8 +43,34 @@ const validateActionId = () => {
     }
 }
 
+const validateProject = () => {
+    return(req, res, next) => {
+        if (!req.body.name || !req.body.description) {
+            return res.status(400).json({
+                message: "Missing project details",
+            })
+        }
+  
+        next()
+    }
+  }
+
+  const validateAction = () => {
+    return(req, res, next) => {
+        if (!req.body.project_id || !req.body.description || !req.body.notes) {
+            return res.status(400).json({
+                message: "Missing action details",
+            })
+        }
+  
+        next()
+    }
+  }
+
 module.exports = {
     logger,
     validateProjectId,
     validateActionId,
+    validateProject,
+    validateAction
 }
