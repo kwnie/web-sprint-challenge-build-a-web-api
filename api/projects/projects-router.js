@@ -35,7 +35,7 @@ router.delete("/api/projects/:id", validateProjectId(), (req, res, next) => {
 })
 
 router.get("/api/projects/:id/actions", validateProjectId(), (req, res, next) => {
-    projects.get(req.project.id)
+    projects.getProjectActions(req.project.id)
         .then(projects => res.status(200).json(projects))
         .catch(next)
 })
